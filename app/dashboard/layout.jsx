@@ -9,6 +9,7 @@ export default function DashboardLayout({ children }) {
 
   return (
     <div style={styles.container}>
+      {/* LATERAL AZUL */}
       <aside style={styles.sidebar}>
         <h2 style={styles.logo}>ERP Azul</h2>
         <nav style={styles.nav}>
@@ -21,20 +22,41 @@ export default function DashboardLayout({ children }) {
         <button style={styles.logout}>Cerrar sesión</button>
       </aside>
 
+      {/* CONTENIDO PRINCIPAL */}
       <main style={styles.main}>
         <div style={styles.header}>
           <h1 style={{ color: "#0a3a78" }}>Dashboard</h1>
+
+          {/* BOTÓN DE CONFIGURACIÓN */}
           <div style={styles.configWrapper}>
-            <button onClick={() => setShowMenu(!showMenu)} style={styles.configButton}>⚙️</button>
+            <button
+              onClick={() => setShowMenu(!showMenu)}
+              style={styles.configButton}
+              title="Configuración"
+            >
+              ⚙️
+            </button>
+
             {showMenu && (
               <div style={styles.menu}>
-                <button style={styles.menuItem} onClick={() => router.push("/dashboard/roles")}>Roles</button>
-                <button style={styles.menuItem} onClick={() => router.push("/dashboard/usuarios")}>Usuarios</button>
+                <button
+                  style={styles.menuItem}
+                  onClick={() => router.push("/dashboard/roles")}
+                >
+                  Roles
+                </button>
+                <button
+                  style={styles.menuItem}
+                  onClick={() => router.push("/dashboard/usuarios")}
+                >
+                  Usuarios
+                </button>
               </div>
             )}
           </div>
         </div>
 
+        {/* CONTENIDO DE CADA PÁGINA */}
         {children}
       </main>
     </div>
@@ -56,8 +78,16 @@ const styles = {
     justifyContent: "space-between",
     padding: "20px 15px",
   },
-  logo: { fontSize: 20, fontWeight: "bold", marginBottom: 30 },
-  nav: { display: "flex", flexDirection: "column", gap: 10 },
+  logo: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 30,
+  },
+  nav: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
+  },
   link: {
     color: "#fff",
     textDecoration: "none",
@@ -75,18 +105,24 @@ const styles = {
     cursor: "pointer",
     fontWeight: "bold",
   },
-  main: { flex: 1, padding: 25, position: "relative" },
+  main: {
+    flex: 1,
+    padding: 25,
+    position: "relative",
+  },
   header: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 20,
   },
-  configWrapper: { position: "relative" },
+  configWrapper: {
+    position: "relative",
+  },
   configButton: {
     background: "transparent",
     border: "none",
-    fontSize: 20,
+    fontSize: 22,
     cursor: "pointer",
   },
   menu: {
