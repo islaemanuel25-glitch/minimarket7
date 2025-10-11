@@ -5,6 +5,10 @@ const nextConfig = {
     appDir: true,
   },
   reactStrictMode: false,
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: false,
 };
 
 export default nextConfig;
