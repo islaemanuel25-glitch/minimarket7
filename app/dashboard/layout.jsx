@@ -9,7 +9,7 @@ export default function DashboardLayout({ children }) {
 
   return (
     <div style={styles.container}>
-      {/* LATERAL AZUL */}
+      {/* ===== LATERAL AZUL ===== */}
       <aside style={styles.sidebar}>
         <h2 style={styles.logo}>ERP Azul</h2>
         <nav style={styles.nav}>
@@ -22,12 +22,12 @@ export default function DashboardLayout({ children }) {
         <button style={styles.logout}>Cerrar sesión</button>
       </aside>
 
-      {/* CONTENIDO PRINCIPAL */}
+      {/* ===== CONTENIDO PRINCIPAL ===== */}
       <main style={styles.main}>
+        {/* Encabezado con botón ⚙️ */}
         <div style={styles.header}>
-          <h1 style={{ color: "#0a3a78" }}>Dashboard</h1>
+          <h1 style={styles.title}>Dashboard</h1>
 
-          {/* BOTÓN DE CONFIGURACIÓN */}
           <div style={styles.configWrapper}>
             <button
               onClick={() => setShowMenu(!showMenu)}
@@ -56,8 +56,8 @@ export default function DashboardLayout({ children }) {
           </div>
         </div>
 
-        {/* CONTENIDO DE CADA PÁGINA */}
-        {children}
+        {/* Contenido dinámico */}
+        <div style={styles.content}>{children}</div>
       </main>
     </div>
   );
@@ -116,6 +116,11 @@ const styles = {
     alignItems: "center",
     marginBottom: 20,
   },
+  title: {
+    color: "#0a3a78",
+    fontWeight: "bold",
+    fontSize: 22,
+  },
   configWrapper: {
     position: "relative",
   },
@@ -144,5 +149,8 @@ const styles = {
     textAlign: "left",
     cursor: "pointer",
     fontSize: 14,
+  },
+  content: {
+    marginTop: 10,
   },
 };
